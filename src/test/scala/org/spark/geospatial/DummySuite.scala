@@ -15,7 +15,7 @@ class DummySuite extends AnyFunSuite with BeforeAndAfterAll {
 
   test("just run in local mode") {
     GeoSpatialPlayground.runApp(
-      new SparkConf().setMaster("local"),
+      new SparkConf().setMaster("local[*]"),
       datasetPath = s"$testRootPath/90per.json",
       outputPath = s"$testRootPath/result/"
     )

@@ -47,13 +47,10 @@
             <artifactId>spark-sql_${scala.binary.version}</artifactId>
             <version>${spark.version}</version>
         </dependency>
-
-        <!--        Todo migrate to java 11  of An exception or error caused a run to abort: JAVA_9 -->
-
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.9</version>
+            <groupId>com.github.davidmoten</groupId>
+            <artifactId>geo</artifactId>
+            <version>0.8.0</version>
         </dependency>
 
         <dependency>
@@ -88,12 +85,20 @@
             <plugin>
                 <groupId>org.scalatest</groupId>
                 <artifactId>scalatest-maven-plugin</artifactId>
-                <version>2.0.0</version>
+                <version>2.0.2</version>
                 <configuration>
                     <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
                     <junitxml>.</junitxml>
                     <filereports>WDF TestSuite.txt</filereports>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>test</id>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>net.alchim31.maven</groupId>
